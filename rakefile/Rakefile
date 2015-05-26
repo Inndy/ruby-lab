@@ -1,0 +1,9 @@
+desc 'Migrate DB'
+
+task :prepare do
+  puts "... Prepare"
+end
+
+task migrate_db: :prepare do
+  puts "... Migrate DB"
+end
