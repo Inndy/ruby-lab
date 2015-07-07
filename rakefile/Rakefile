@@ -1,9 +1,19 @@
 desc 'Migrate DB'
 
+task :default => [ :migrate_db ]
+
 task :prepare do
   puts "... Prepare"
 end
 
-task migrate_db: :prepare do
+task :migrate_db => [ :prepare ] do
   puts "... Migrate DB"
+end
+
+task :compile do
+  sh "gcc main.c -o main -O3"
+end
+
+task :compile_and_run => [ :compile ] do
+  sh "./main"
 end
